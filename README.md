@@ -343,13 +343,140 @@ docker network connect MyOverlayNetwork nginx
 
 ## Connecting a Container to a Network When it Starts
 
+``` 
 docker run -it -d --network=MyOverlayNetwork nginx
+``` 
 
 ## Disconnecting a Container from a Network
 
 ```
 docker network disconnect MyOverlayNetwork nginx
 ```
+
+
+# Cleaning Docker
+
+## Removeing a Running Container
+
+```
+docker rm nginx
+```
+
+## Removing a Container and its Volume
+
+```
+docker rm -v nginx
+```
+
+## Removing all Exited Containers
+
+```
+docker rm $(docker ps -a -f status=exited -q)
+```
+
+
+## Removing All Stopped Containers
+
+```
+docker rm `docker ps -a -q`
+```
+
+## Removing a Docker Image
+
+```
+docker rmi nginx
+```
+
+## Removing Dangling Images
+
+```
+docker rmi $(docker images -f dangling=true -q)
+```
+
+## Removing all Images
+
+```
+docker rmi $(docker images -a -q)
+```
+
+## Stopping & Removing all Containers
+
+```
+docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) 
+```
+
+## Removing Dangling Volumes
+
+```
+docker volume rm $(docker volume ls -f dangling=true -q)
+```
+
+# Docker Swarm 
+
+## Installing Docker Swarm
+
+curl -ssl https://get.docker.com | bash
+
+## Initializing the Swarm
+
+docker swarm init --advertise-addr 192.168.10.1
+
+## Getting a Worker to Join the Swarm
+
+docker swarm join-token worker
+
+## Getting a Manager to Join the Swarm
+
+docker swarm join-token manager
+
+
+## Listing Services
+
+docker service ls
+
+## Listing nodes
+
+docker node ls
+
+## Creating a Service
+
+docker service create --name vote -p 8080:80 instavote/vote
+
+## Listing Swarm Tasks
+
+docker service ps
+
+## Scaling a Service
+
+
+docker service scale vote=3
+
+## Updating a Service 
+
+```
+docker service update --image instavote/vote:movies vote
+```
+
+```
+docker service update --force --update-parallelism 1 --update-delay 30s nginx
+```
+
+```
+docker service update --update-parallelism 5--update-delay 2s --image instavote/vote:indent vote
+```
+
+```
+docker service update --limit-cpu 2 nginx
+```
+
+```
+docker service update --replicas=5 nginx
+```
+
+
+
+
+
 
 
 
