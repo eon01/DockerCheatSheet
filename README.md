@@ -14,7 +14,7 @@ Use this link to download the dmg.
 https://download.docker.com/mac/stable/Docker.dmg
 ```
 
-##  Widnows
+##  Windows
 
 Use the msi installer:
 
