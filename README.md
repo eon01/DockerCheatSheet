@@ -14,6 +14,14 @@ Use this link to download the dmg.
 https://download.docker.com/mac/stable/Docker.dmg
 ```
 
+##  Widnows
+
+Use the msi installer:
+
+```
+https://download.docker.com/win/stable/InstallDocker.msi
+```
+
 # Docker Registries & Repositories
 
 ## Login to a Registry
