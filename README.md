@@ -423,41 +423,68 @@ docker volume rm $(docker volume ls -f dangling=true -q)
 
 ## Installing Docker Swarm
 
+```
 curl -ssl https://get.docker.com | bash
+```
+
 
 ## Initializing the Swarm
 
+```
 docker swarm init --advertise-addr 192.168.10.1
+```
+
 
 ## Getting a Worker to Join the Swarm
 
+```
 docker swarm join-token worker
+```
+
 
 ## Getting a Manager to Join the Swarm
 
+```
 docker swarm join-token manager
+```
+
 
 
 ## Listing Services
 
+```
 docker service ls
+```
+
 
 ## Listing nodes
 
+```
 docker node ls
+```
+
 
 ## Creating a Service
 
+```
 docker service create --name vote -p 8080:80 instavote/vote
+```
+
 
 ## Listing Swarm Tasks
 
+```
 docker service ps
+```
+
 
 ## Scaling a Service
 
 
+```
 docker service scale vote=3
+```
+
 
 ## Updating a Service 
 
