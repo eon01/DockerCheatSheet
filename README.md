@@ -282,7 +282,7 @@ docker save busybox > ubuntu.tar
 docker history 
 ```
 
-## Creating an Image Fron a Container
+## Creating an Image From a Container
 
 ``` 
 docker commit nginx
@@ -507,14 +507,3 @@ docker service update --limit-cpu 2 nginx
 ```
 docker service update --replicas=5 nginx
 ```
-
-
-
-
-
-
-
-
-
-
-
