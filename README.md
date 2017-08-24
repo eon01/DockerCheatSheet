@@ -37,7 +37,7 @@ docker login localhost:8080
 ## Logout from a Registry.
 
 ```
-docker logout 
+docker logout
 ```
 
 ```
@@ -82,7 +82,7 @@ docker push eon01/nginx localhost:5000/myadmin/nginx
 docker create -t -i eon01/infinite --name infinite
 ```
 
-## Running a Container 
+## Running a Container
 
 ```
 docker run -it --name infinite -d eon01/infinite
@@ -119,7 +119,7 @@ docker start nginx
 docker stop nginx
 ```
 
-## Restrating
+## Restarting
 ```
 docker restart nginx
 ```
@@ -173,7 +173,7 @@ docker ps -a
 docker logs infinite
 ```
 
-## Inspecting Containers 
+## Inspecting Containers
 
 ```
 docker inspect infinite
@@ -224,41 +224,41 @@ docker images
 
 ## Building Images
 
-``` 
-docker build . 
+```
+docker build .
 ```
 
-``` 
-docker build github.com/creack/docker-firefox 
+```
+docker build github.com/creack/docker-firefox
 ```
 
-``` 
-docker build - < Dockerfile 
+```
+docker build - < Dockerfile
 ```
 
-``` 
-docker build - < context.tar.gz 
+```
+docker build - < context.tar.gz
 ```
 
-``` 
-docker build -t eon/infinite . 
+```
+docker build -t eon/infinite .
 ```
 
-``` 
-docker build -f myOtherDockerfile . 
+```
+docker build -f myOtherDockerfile .
 ```
 
-``` 
-curl example.com/remote/Dockerfile | docker build -f - . 
+```
+curl example.com/remote/Dockerfile | docker build -f - .
 ```
 
 
 
 ## Removing an Image
 
-``` 
+```
 docker rmi nginx
-``` 
+```
 
 ## Loading a Tarred Repository from a File or the Standard Input Stream
 
@@ -279,14 +279,14 @@ docker save busybox > ubuntu.tar
 ## Showing the History of an Image
 
 ```
-docker history 
+docker history
 ```
 
 ## Creating an Image From a Container
 
-``` 
+```
 docker commit nginx
-``` 
+```
 
 ## Tagging an Image
 
@@ -347,13 +347,13 @@ docker network inspect MyOverlayNetwork
 
 ```
 docker network connect MyOverlayNetwork nginx
-``` 
+```
 
 ## Connecting a Container to a Network When it Starts
 
-``` 
+```
 docker run -it -d --network=MyOverlayNetwork nginx
-``` 
+```
 
 ## Disconnecting a Container from a Network
 
@@ -410,7 +410,7 @@ docker rmi $(docker images -a -q)
 ## Stopping & Removing all Containers
 
 ```
-docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) 
+docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
 ```
 
 ## Removing Dangling Volumes
@@ -419,7 +419,7 @@ docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
 docker volume rm $(docker volume ls -f dangling=true -q)
 ```
 
-# Docker Swarm 
+# Docker Swarm
 
 ## Installing Docker Swarm
 
@@ -486,7 +486,7 @@ docker service scale vote=3
 ```
 
 
-## Updating a Service 
+## Updating a Service
 
 ```
 docker service update --image instavote/vote:movies vote
