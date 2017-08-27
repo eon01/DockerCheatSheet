@@ -364,7 +364,7 @@ docker network disconnect MyOverlayNetwork nginx
 
 # Cleaning Docker
 
-## Removeing a Running Container
+## Removing a Running Container
 
 ```
 docker rm nginx
