@@ -207,7 +207,7 @@ docker top infinite
 docker stats infinite
 ```
 
-## Inspectting changes to files or directories on a container’s filesystem
+## Inspecting changes to files or directories on a container’s filesystem
 
 ```
 docker diff infinite
