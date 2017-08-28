@@ -515,7 +515,7 @@ docker service update --replicas=5 nginx
 
 # Notes
 
-**This work was first published in [Painless Docker Course](http://painlessdocker.com)**
+This work was first published in [Painless Docker Course](http://painlessdocker.com)
 
 
 
