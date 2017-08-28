@@ -1,4 +1,4 @@
-> This repository is trending on Github since some days now. Watch it, we will add many updates in future. 
+> This repository is trending on Github since some days now. Watch it, we will add many updates in the future. 
 > Thank you for your support.
 
 # Installation
