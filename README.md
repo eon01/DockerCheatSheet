@@ -1,4 +1,5 @@
-** This repository is trending on Github since some days now. Watch it, we will add many updates in future. Thank you for your support **
+> This repository is trending on Github since some days now. Watch it, we will add many updates in future. 
+> Thank you for your support.
 
 # Installation
 
@@ -513,7 +514,7 @@ docker service update --replicas=5 nginx
 
 
 
-** This work was first published in [Painless Docker Course](http://painlessdocker.com) **
+**This work was first published in [Painless Docker Course](http://painlessdocker.com)**
 
 
 
