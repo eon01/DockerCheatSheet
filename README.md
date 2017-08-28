@@ -1,3 +1,6 @@
+> This repository is trending on Github since some days now. Watch it, we will add many updates in future. 
+> Thank you for your support.
+
 # Installation
 
 ## Linux
@@ -507,3 +510,7 @@ docker service update --limit-cpu 2 nginx
 ```
 docker service update --replicas=5 nginx
 ```
+
+# Notes
+
+This work was first published in [Painless Docker Course](http://painlessdocker.com)
