@@ -410,6 +410,12 @@ docker rmi $(docker images -f dangling=true -q)
 docker rmi $(docker images -a -q)
 ```
 
+## Removing all untagged images
+
+```
+docker rmi -f $(docker images | grep "^<none>" | awk "{print $3}")
+```
+
 ## Stopping & Removing all Containers
 
 ```
