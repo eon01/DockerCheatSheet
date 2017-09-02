@@ -151,6 +151,12 @@ docker wait nginx
 docker kill nginx
 ```
 
+## Sending another signal
+
+```
+docker kill -s HUP nginx
+```
+
 ## Connecting to an Existing Container
 
 ```
