@@ -436,6 +436,18 @@ docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
 docker volume rm $(docker volume ls -f dangling=true -q)
 ```
 
+## Removing all unused (containers, images, networks and volumes)
+
+```
+docker system clean -f
+```
+
+## Clean all
+
+```
+docker system clean -a
+```
+
 # Docker Swarm
 
 ## Installing Docker Swarm
