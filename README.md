@@ -439,13 +439,13 @@ docker volume rm $(docker volume ls -f dangling=true -q)
 ## Removing all unused (containers, images, networks and volumes)
 
 ```
-docker system clean -f
+docker system prune -f
 ```
 
 ## Clean all
 
 ```
-docker system clean -a
+docker system prune -a
 ```
 
 # Docker Swarm
