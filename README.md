@@ -3,6 +3,19 @@
 
 Check [the website](http://dockercheatsheet.painlessdocker.com).
 
+# Table of Contents
+
+   * [Table of Contents](#table-of-contents)
+   * [Installation](#installation)
+   * [Docker Registries &amp; Repositories](#docker-registries--repositories)
+   * [Running Containers](#running-containers)
+   * [Starting &amp; Stopping Containers](#starting--stopping-containers)
+   * [Getting Information about Containers](#getting-information-about-containers)
+   * [Networking](#networking)
+   * [Cleaning Docker](#cleaning-docker)
+   * [Docker Swarm](#docker-swarm)
+   * [Notes](#notes)
+
 # Installation
 
 ## Linux
