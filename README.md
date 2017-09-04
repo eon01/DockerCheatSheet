@@ -5,7 +5,6 @@ Check [the website](http://dockercheatsheet.painlessdocker.com).
 
 # Table of Contents
 
-   * [Table of Contents](#table-of-contents)
    * [Installation](#installation)
    * [Docker Registries &amp; Repositories](#docker-registries--repositories)
    * [Running Containers](#running-containers)
