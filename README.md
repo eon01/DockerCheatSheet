@@ -83,9 +83,10 @@ docker push eon01/nginx localhost:5000/myadmin/nginx
 
 ## Create and Run a Simple Container
 
-> Start a [ubuntu:latest](https://hub.docker.com/_/ubuntu/) image and bind the port `80` from the **CONTAINER** to port `3000` on the **HOST** 
-> and mount the current directory to `/data` on the CONTAINER 
-> Note: on windows you have to change `-v ${PWD}:/data` to `-v "C:\Data":/data`
+> - Start an [ubuntu:latest](https://hub.docker.com/_/ubuntu/) image
+> - Bind the port `80` from the **CONTAINER** to port `3000` on the **HOST** 
+> - Mount the current directory to `/data` on the CONTAINER 
+> - Note: on **windows** you have to change `-v ${PWD}:/data` to `-v "C:\Data":/data`
 
 ```
 docker run --name infinite -it -p 3000:80 -v ${PWD}:/data ubuntu:latest
