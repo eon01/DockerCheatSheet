@@ -74,21 +74,21 @@ docker search nginx --stars=3 --no-trunc busybox
 ## Pulling an Image
 
 ```
-docker pull nginx
+docker image pull nginx
 ```
 
 ```
-docker pull eon01/nginx localhost:5000/myadmin/nginx
+docker image pull eon01/nginx localhost:5000/myadmin/nginx
 ```
 
 ## Pushing an Image
 
 ```
-docker push eon01/nginx
+docker image push eon01/nginx
 ```
 
 ```
-docker push eon01/nginx localhost:5000/myadmin/nginx
+docker image push eon01/nginx localhost:5000/myadmin/nginx
 ```
 
 # Running Containers
@@ -101,37 +101,37 @@ docker push eon01/nginx localhost:5000/myadmin/nginx
 > - Note: on **windows** you have to change `-v ${PWD}:/data` to `-v "C:\Data":/data`
 
 ```
-docker run --name infinite -it -p 3000:80 -v ${PWD}:/data ubuntu:latest
+docker container run --name infinite -it -p 3000:80 -v ${PWD}:/data ubuntu:latest
 ```
 
 ## Creating a Container
 
 ```
-docker create -t -i eon01/infinite --name infinite
+docker container create -t -i eon01/infinite --name infinite
 ```
 
 ## Running a Container
 
 ```
-docker run -it --name infinite -d eon01/infinite
+docker container run -it --name infinite -d eon01/infinite
 ```
 
 ## Renaming a Container
 
 ```
-docker rename infinite infinity
+docker container rename infinite infinity
 ```
 
 ## Removing a Container
 
 ```
-docker rm infinite
+docker container rm infinite
 ```
 
 ## Updating a Container
 
 ```
-docker update --cpu-shares 512 -m 300M infinite
+docker container update --cpu-shares 512 -m 300M infinite
 ```
 
 # Starting & Stopping Containers
@@ -139,53 +139,53 @@ docker update --cpu-shares 512 -m 300M infinite
 ## Starting
 
 ```
-docker start nginx
+docker container start nginx
 ```
 
 ## Stopping
 ```
-docker stop nginx
+docker container stop nginx
 ```
 
 ## Restarting
 ```
-docker restart nginx
+docker container restart nginx
 ```
 
 ## Pausing
 ```
-docker pause nginx
+docker container pause nginx
 
 ```
 
 ## Unpausing
 
 ```
-docker unpause nginx
+docker container unpause nginx
 ```
 
 ## Blocking a Container
 
 ```
-docker wait nginx
+docker container wait nginx
 ```
 
 ## Sending a SIGKILL
 
 ```
-docker kill nginx
+docker container kill nginx
 ```
 
 ## Sending another signal
 
 ```
-docker kill -s HUP nginx
+docker container kill -s HUP nginx
 ```
 
 ## Connecting to an Existing Container
 
 ```
-docker attach nginx
+docker container attach nginx
 ```
 
 
@@ -194,11 +194,11 @@ docker attach nginx
 ## Running Containers
 
 ```
-docker ps
+docker container ls
 ```
 
 ```
-docker ps -a
+docker container ls -a
 ```
 
 ## Container Logs
@@ -210,47 +210,47 @@ docker logs infinite
 ## Follow Container Logs
 
 ```
-docker logs infinite -f
+docker container logs infinite -f
 ```
 
 ## Inspecting Containers
 
 ```
-docker inspect infinite
+docker container inspect infinite
 ```
 
 ```
-docker inspect --format '{{ .NetworkSettings.IPAddress }}' $(docker ps -q)
+docker container inspect --format '{{ .NetworkSettings.IPAddress }}' $(docker ps -q)
 ```
 
 ## Containers Events
 
 ```
-docker events infinite
+docker system events infinite
 ```
 
 ## Public Ports
 
 ```
-docker port infinite
+docker container port infinite
 ```
 
 ## Running Processes
 
 ```
-docker top infinite
+docker container top infinite
 ```
 
 ## Container Resource Usage
 
 ```
-docker stats infinite
+docker container stats infinite
 ```
 
 ## Inspecting changes to files or directories on a container’s filesystem
 
 ```
-docker diff infinite
+docker container diff infinite
 ```
 
 
@@ -259,7 +259,7 @@ docker diff infinite
 ## Listing Images
 
 ```
-docker images
+docker image ls
 ```
 
 ## Building Images
@@ -297,47 +297,47 @@ curl example.com/remote/Dockerfile | docker build -f - .
 ## Removing an Image
 
 ```
-docker rmi nginx
+docker image rm nginx
 ```
 
 ## Loading a Tarred Repository from a File or the Standard Input Stream
 
 ```
-docker load < ubuntu.tar.gz
+docker image load < ubuntu.tar.gz
 ```
 
 ```
-docker load --input ubuntu.tar
+docker image load --input ubuntu.tar
 ```
 
 ## Save an Image to a Tar Archive
 
 ```
-docker save busybox > ubuntu.tar
+docker image save busybox > ubuntu.tar
 ```
 
 ## Showing the History of an Image
 
 ```
-docker history
+docker image history
 ```
 
 ## Creating an Image From a Container
 
 ```
-docker commit nginx
+docker container commit nginx
 ```
 
 ## Tagging an Image
 
 ```
-docker tag nginx eon01/nginx
+docker image tag nginx eon01/nginx
 ```
 
 ## Pushing an Image
 
 ```
-docker push eon01/nginx
+docker image push eon01/nginx
 ```
 
 
@@ -392,7 +392,7 @@ docker network connect MyOverlayNetwork nginx
 ## Connecting a Container to a Network When it Starts
 
 ```
-docker run -it -d --network=MyOverlayNetwork nginx
+docker container run -it -d --network=MyOverlayNetwork nginx
 ```
 
 ## Disconnecting a Container from a Network
@@ -407,56 +407,56 @@ docker network disconnect MyOverlayNetwork nginx
 ## Removing a Running Container
 
 ```
-docker rm nginx
+docker container rm nginx
 ```
 
 ## Removing a Container and its Volume
 
 ```
-docker rm -v nginx
+docker container rm -v nginx
 ```
 
 ## Removing all Exited Containers
 
 ```
-docker rm $(docker ps -a -f status=exited -q)
+docker container rm $(docker container ls -a -f status=exited -q)
 ```
 
 
 ## Removing All Stopped Containers
 
 ```
-docker rm `docker ps -a -q`
+docker container rm `docker container ls -a -q`
 ```
 
 ## Removing a Docker Image
 
 ```
-docker rmi nginx
+docker image rm nginx
 ```
 
 ## Removing Dangling Images
 
 ```
-docker rmi $(docker images -f dangling=true -q)
+docker image rm $(docker image ls -f dangling=true -q)
 ```
 
 ## Removing all Images
 
 ```
-docker rmi $(docker images -a -q)
+docker image rm $(docker image ls -a -q)
 ```
 
 ## Removing all untagged images
 
 ```
-docker rmi -f $(docker images | grep "^<none>" | awk "{print $3}")
+docker image rm -f $(docker image ls | grep "^<none>" | awk "{print $3}")
 ```
 
 ## Stopping & Removing all Containers
 
 ```
-docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
+docker container stop $(docker container ls -a -q) && docker container rm $(docker container ls -a -q)
 ```
 
 ## Removing Dangling Volumes
