@@ -68,7 +68,7 @@ docker search nginx
 ```
 
 ```
-docker search nginx --stars=3 --no-trunc busybox
+docker search --filter stars=3 --no-trunc nginx
 ```
 
 ## Pulling an Image
