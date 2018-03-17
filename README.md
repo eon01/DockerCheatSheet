@@ -7,11 +7,15 @@ Check [the website](http://dockercheatsheet.painlessdocker.com).
 
 ## Linux
 
+For more information, see [here](https://docs.docker.com/install/#server)
+
 ```
 curl -sSL https://get.docker.com/ | sh
 ```
 
 ## Mac
+
+For more information, see [here](https://docs.docker.com/docker-for-mac/install/)
 
 Use this link to download the dmg.
 
@@ -20,6 +24,8 @@ https://download.docker.com/mac/stable/Docker.dmg
 ```
 
 ##  Windows
+
+For more information, see [here](https://docs.docker.com/docker-for-windows/install/)
 
 Use the msi installer:
 
@@ -372,6 +378,21 @@ docker run -it -d --network=MyOverlayNetwork nginx
 docker network disconnect MyOverlayNetwork nginx
 ```
 
+## Exposing Ports
+
+Using Dockerfile, you can expose a port on the container using:
+
+```
+EXPOSE <port_number>
+```
+
+You can also map the container port to a host port using:
+
+e.g.
+
+```
+docker run -p $HOST_PORT:$CONTAINER_PORT --name infinite -t infinite
+```
 
 # Cleaning Docker
 
