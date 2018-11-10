@@ -3,21 +3,21 @@
 
 Check [the website](http://dockercheatsheet.painlessdocker.com).
 
-*Read this in other languages: [English](README.md), [Russian](README.ru.md).*
+*Прочитать на других языках: [English](README.md), [Russian](README.ru.md).*
 
-# Table of Contents
+# Содержание
 
-   * [Installation](#installation)
-   * [Docker Registries &amp; Repositories](#docker-registries--repositories)
-   * [Running Containers](#running-containers)
-   * [Starting &amp; Stopping Containers](#starting--stopping-containers)
-   * [Getting Information about Containers](#getting-information-about-containers)
-   * [Networking](#networking)
-   * [Cleaning Docker](#cleaning-docker)
+   * [Установка](#установка)
+   * [Реестры и репозитории Docker](#реестры-и-репозитории-docker)
+   * [Первые действия с контейнерами](#первые-действия-с-контейнерами)
+   * [Запуск и остановка контейнеров](#запуск-и-остановка-контейнеров)
+   * [Получение информации о контейнерах](#получение-информации-о-контейнерах)
+   * [Сеть](#сеть)
+   * [Очистка Docker](#очистка-docker)
    * [Docker Swarm](#docker-swarm)
-   * [Notes](#notes)
+   * [Заметки](#заметки)
 
-# Installation
+# Установка
 
 ## Linux
 
@@ -31,7 +31,7 @@ curl -sSL https://get.docker.com/ | sh
 
 For more information, see [here](https://docs.docker.com/docker-for-mac/install/)
 
-Use this link to download the dmg.
+Скачайте dmg по этой ссылке.
 
 ```
 https://download.docker.com/mac/stable/Docker.dmg
@@ -41,15 +41,15 @@ https://download.docker.com/mac/stable/Docker.dmg
 
 For more information, see [here](https://docs.docker.com/docker-for-windows/install/)
 
-Use the msi installer:
+Используйте MSI-инсталлятор:
 
 ```
 https://download.docker.com/win/stable/InstallDocker.msi
 ```
 
-# Docker Registries & Repositories
+# Реестры и репозитории Docker
 
-## Login to a Registry
+## Вход в реестр
 
 ```
 docker login
@@ -59,7 +59,7 @@ docker login
 docker login localhost:8080
 ```
 
-## Logout from a Registry.
+## Выход из реестра.
 
 ```
 docker logout
@@ -69,7 +69,7 @@ docker logout
 docker logout localhost:8080
 ```
 
-## Searching an Image
+## Поиск образа
 
 ```
 docker search nginx
@@ -79,7 +79,7 @@ docker search nginx
 docker search --filter stars=3 --no-trunc nginx
 ```
 
-## Pulling an Image
+## Pull (выгрузка из реестра) образа
 
 ```
 docker image pull nginx
@@ -89,7 +89,7 @@ docker image pull nginx
 docker image pull eon01/nginx localhost:5000/myadmin/nginx
 ```
 
-## Pushing an Image
+## Push (загрузка в реестр) образа
 
 ```
 docker image push eon01/nginx
@@ -99,7 +99,7 @@ docker image push eon01/nginx
 docker image push eon01/nginx localhost:5000/myadmin/nginx
 ```
 
-# Running Containers
+# Первые действия с контейнерами
 
 ## Create and Run a Simple Container
 
@@ -112,94 +112,94 @@ docker image push eon01/nginx localhost:5000/myadmin/nginx
 docker container run --name infinite -it -p 3000:80 -v ${PWD}:/data ubuntu:latest
 ```
 
-## Creating a Container
+## Создание контейнера
 
 ```
 docker container create -t -i eon01/infinite --name infinite
 ```
 
-## Running a Container
+## Запуск контейнера
 
 ```
 docker container run -it --name infinite -d eon01/infinite
 ```
 
-## Renaming a Container
+## Переименование контейнера
 
 ```
 docker container rename infinite infinity
 ```
 
-## Removing a Container
+## Удаление контейнера
 
 ```
 docker container rm infinite
 ```
 
-## Updating a Container
+## Обновление контейнера
 
 ```
 docker container update --cpu-shares 512 -m 300M infinite
 ```
 
-# Starting & Stopping Containers
+# Запуск и остановка контейнеров
 
-## Starting
+## Запуск
 
 ```
 docker container start nginx
 ```
 
-## Stopping
+## Остановка
 ```
 docker container stop nginx
 ```
 
-## Restarting
+## Перезапуск
 ```
 docker container restart nginx
 ```
 
-## Pausing
+## Пауза (приостановка всех процессов контейнера)
 ```
 docker container pause nginx
 
 ```
 
-## Unpausing
+## Снятие паузы
 
 ```
 docker container unpause nginx
 ```
 
-## Blocking a Container
+## Блокировка (до остановки контейнера)
 
 ```
 docker container wait nginx
 ```
 
-## Sending a SIGKILL
+## Отправка SIGKILL (завершающего сигнала)
 
 ```
 docker container kill nginx
 ```
 
-## Sending another signal
+## Отправка другого сигнала
 
 ```
 docker container kill -s HUP nginx
 ```
 
-## Connecting to an Existing Container
+## Подключение к существующему контейнеру
 
 ```
 docker container attach nginx
 ```
 
 
-# Getting Information about Containers
+# Получение информации о контейнерах
 
-## Running Containers
+## Работающие контейнеры
 
 ```
 docker container ls
@@ -209,7 +209,7 @@ docker container ls
 docker container ls -a
 ```
 
-## Container Logs
+## Логи контейнера
 
 ```
 docker logs infinite
@@ -221,7 +221,7 @@ docker logs infinite
 docker container logs infinite -f
 ```
 
-## Inspecting Containers
+## Информация о контейнере
 
 ```
 docker container inspect infinite
@@ -231,46 +231,46 @@ docker container inspect infinite
 docker container inspect --format '{{ .NetworkSettings.IPAddress }}' $(docker ps -q)
 ```
 
-## Containers Events
+## События контейнера
 
 ```
 docker system events infinite
 ```
 
-## Public Ports
+## Публичные порты
 
 ```
 docker container port infinite
 ```
 
-## Running Processes
+## Выполняющиеся процессы
 
 ```
 docker container top infinite
 ```
 
-## Container Resource Usage
+## Использование ресурсов
 
 ```
 docker container stats infinite
 ```
 
-## Inspecting changes to files or directories on a container’s filesystem
+## Изменения в файлах или директориях файловой системы контейнера
 
 ```
 docker container diff infinite
 ```
 
 
-## Manipulating Images
+## Управление образами
 
-## Listing Images
+## Список образов
 
 ```
 docker image ls
 ```
 
-## Building Images
+## Создание образов
 
 ```
 docker build .
@@ -302,13 +302,13 @@ curl example.com/remote/Dockerfile | docker build -f - .
 
 
 
-## Removing an Image
+## Удаление образа
 
 ```
 docker image rm nginx
 ```
 
-## Loading a Tarred Repository from a File or the Standard Input Stream
+## Загрузка репозитория в tar (из файла или стандартного ввода)
 
 ```
 docker image load < ubuntu.tar.gz
@@ -318,40 +318,40 @@ docker image load < ubuntu.tar.gz
 docker image load --input ubuntu.tar
 ```
 
-## Save an Image to a Tar Archive
+## Сохранение образа в tar-архив
 
 ```
 docker image save busybox > ubuntu.tar
 ```
 
-## Showing the History of an Image
+## Просмотр истории образа
 
 ```
 docker image history
 ```
 
-## Creating an Image From a Container
+## Создание образа из контейнера
 
 ```
 docker container commit nginx
 ```
 
-## Tagging an Image
+## Тегирование образа
 
 ```
 docker image tag nginx eon01/nginx
 ```
 
-## Pushing an Image
+## Push (загрузка в реестр) образа
 
 ```
 docker image push eon01/nginx
 ```
 
 
-# Networking
+# Сеть
 
-## Creating Networks
+## Создание сети
 
 ```
 docker network create -d overlay MyOverlayNetwork
@@ -373,37 +373,37 @@ docker network create -d overlay \
   MyOverlayNetwork
 ```
 
-## Removing a Network
+## Удаление сети
 
 ```
 docker network rm MyOverlayNetwork
 ```
 
-## Listing Networks
+## Список сетей
 
 ```
 docker network ls
 ```
 
-## Getting Information About a Network
+## Получение информации о сети
 
 ```
 docker network inspect MyOverlayNetwork
 ```
 
-## Connecting a Running Container to a Network
+## Подключение работающего контейнера к сети
 
 ```
 docker network connect MyOverlayNetwork nginx
 ```
 
-## Connecting a Container to a Network When it Starts
+## Подключение контейнера к сети при его запуске
 
 ```
 docker container run -it -d --network=MyOverlayNetwork nginx
 ```
 
-## Disconnecting a Container from a Network
+## Отключение контейнера от сети
 
 ```
 docker network disconnect MyOverlayNetwork nginx
@@ -425,64 +425,64 @@ e.g.
 docker run -p $HOST_PORT:$CONTAINER_PORT --name infinite -t infinite
 ```
 
-# Cleaning Docker
+# Очистка Docker
 
-## Removing a Running Container
+## Удаление работающего контейнера
 
 ```
 docker container rm nginx
 ```
 
-## Removing a Container and its Volume
+## Удаление контейнера и его тома (volume)
 
 ```
 docker container rm -v nginx
 ```
 
-## Removing all Exited Containers
+## Удаление всех контейнеров со статусом exited
 
 ```
 docker container rm $(docker container ls -a -f status=exited -q)
 ```
 
 
-## Removing All Stopped Containers
+## Удаление всех остановленных контейнеров
 
 ```
 docker container rm `docker container ls -a -q`
 ```
 
-## Removing a Docker Image
+## Удаление образа
 
 ```
 docker image rm nginx
 ```
 
-## Removing Dangling Images
+## Удаление неиспользуемых (dangling) образов
 
 ```
 docker image rm $(docker image ls -f dangling=true -q)
 ```
 
-## Removing all Images
+## Удаление всех образов
 
 ```
 docker image rm $(docker image ls -a -q)
 ```
 
-## Removing all untagged images
+## Удаление всех образов без тегов
 
 ```
 docker image rm -f $(docker image ls | grep "^<none>" | awk "{print $3}")
 ```
 
-## Stopping & Removing all Containers
+## Остановка и удаление всех контейнеров
 
 ```
 docker container stop $(docker container ls -a -q) && docker container rm $(docker container ls -a -q)
 ```
 
-## Removing Dangling Volumes
+## Удаление неиспользуемых (dangling) томов
 
 ```
 docker volume rm $(docker volume ls -f dangling=true -q)
@@ -494,7 +494,7 @@ docker volume rm $(docker volume ls -f dangling=true -q)
 docker system prune -f
 ```
 
-## Clean all
+## Полная очистка
 
 ```
 docker system prune -a
@@ -502,28 +502,28 @@ docker system prune -a
 
 # Docker Swarm
 
-## Installing Docker Swarm
+## Установка Docker Swarm
 
 ```
 curl -ssl https://get.docker.com | bash
 ```
 
 
-## Initializing the Swarm
+## Инициализация Swarm
 
 ```
 docker swarm init --advertise-addr 192.168.10.1
 ```
 
 
-## Getting a Worker to Join the Swarm
+## Подключение рабочего узла (worker) к Swarm
 
 ```
 docker swarm join-token worker
 ```
 
 
-## Getting a Manager to Join the Swarm
+## Подключение управляющего узла (manager) к Swarm
 
 ```
 docker swarm join-token manager
@@ -531,35 +531,35 @@ docker swarm join-token manager
 
 
 
-## Listing Services
+## Список сервисов
 
 ```
 docker service ls
 ```
 
 
-## Listing nodes
+## Список узлов
 
 ```
 docker node ls
 ```
 
 
-## Creating a Service
+## Создание сервиса
 
 ```
 docker service create --name vote -p 8080:80 instavote/vote
 ```
 
 
-## Listing Swarm Tasks
+## Список заданий Swarm
 
 ```
 docker service ps
 ```
 
 
-## Scaling a Service
+## Масштабирование сервиса
 
 
 ```
@@ -567,7 +567,7 @@ docker service scale vote=3
 ```
 
 
-## Updating a Service
+## Обновление сервиса
 
 ```
 docker service update --image instavote/vote:movies vote
@@ -589,6 +589,6 @@ docker service update --limit-cpu 2 nginx
 docker service update --replicas=5 nginx
 ```
 
-# Notes
+# Заметки
 
 This work was first published in [Painless Docker Course](http://painlessdocker.com)
