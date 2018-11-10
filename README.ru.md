@@ -494,7 +494,7 @@ docker volume rm $(docker volume ls -f dangling=true -q)
 docker system prune -f
 ```
 
-## Clean all
+## Полная очистка
 
 ```
 docker system prune -a
