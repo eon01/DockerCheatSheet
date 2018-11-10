@@ -9,13 +9,13 @@ Check [the website](http://dockercheatsheet.painlessdocker.com).
 
    * [Установка](#установка)
    * [Реестры и репозитории Docker](#реестры-и-репозитории-docker)
-   * [Running Containers](#running-containers)
-   * [Starting &amp; Stopping Containers](#starting--stopping-containers)
-   * [Getting Information about Containers](#getting-information-about-containers)
-   * [Networking](#networking)
-   * [Cleaning Docker](#cleaning-docker)
+   * [Первые действия с контейнерами](#первые-действия-с-контейнерами)
+   * [Запуск и остановка контейнеров](#запуск-и-остановка-контейнеров)
+   * [Получение информации о контейнерах](#получение-информации-о-контейнерах)
+   * [Сеть](#сеть)
+   * [Очистка Docker](#очистка-docker)
    * [Docker Swarm](#docker-swarm)
-   * [Notes](#notes)
+   * [Заметки](#заметки)
 
 # Установка
 
@@ -99,7 +99,7 @@ docker image push eon01/nginx
 docker image push eon01/nginx localhost:5000/myadmin/nginx
 ```
 
-# Running Containers
+# Первые действия с контейнерами
 
 ## Create and Run a Simple Container
 
@@ -142,7 +142,7 @@ docker container rm infinite
 docker container update --cpu-shares 512 -m 300M infinite
 ```
 
-# Starting & Stopping Containers
+# Запуск и остановка контейнеров
 
 ## Запуск
 
@@ -197,7 +197,7 @@ docker container attach nginx
 ```
 
 
-# Getting Information about Containers
+# Получение информации о контейнерах
 
 ## Работающие контейнеры
 
@@ -262,7 +262,7 @@ docker container diff infinite
 ```
 
 
-## Manipulating Images
+## Управление образами
 
 ## Список образов
 
@@ -349,7 +349,7 @@ docker image push eon01/nginx
 ```
 
 
-# Networking
+# Сеть
 
 ## Создание сети
 
@@ -425,7 +425,7 @@ e.g.
 docker run -p $HOST_PORT:$CONTAINER_PORT --name infinite -t infinite
 ```
 
-# Cleaning Docker
+# Очистка Docker
 
 ## Удаление работающего контейнера
 
@@ -589,6 +589,6 @@ docker service update --limit-cpu 2 nginx
 docker service update --replicas=5 nginx
 ```
 
-# Notes
+# Заметки
 
 This work was first published in [Painless Docker Course](http://painlessdocker.com)
