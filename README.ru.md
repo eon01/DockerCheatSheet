@@ -3,12 +3,12 @@
 
 Check [the website](http://dockercheatsheet.painlessdocker.com).
 
-*Read this in other languages: [English](README.md), [Russian](README.ru.md).*
+*Прочитать на других языках: [English](README.md), [Russian](README.ru.md).*
 
 # Содержание
 
-   * [Installation](#installation)
-   * [Docker Registries &amp; Repositories](#docker-registries--repositories)
+   * [Установка](#установка)
+   * [Реестры и репозитории Docker](#реестры-и-репозитории-docker)
    * [Running Containers](#running-containers)
    * [Starting &amp; Stopping Containers](#starting--stopping-containers)
    * [Getting Information about Containers](#getting-information-about-containers)
@@ -17,7 +17,7 @@ Check [the website](http://dockercheatsheet.painlessdocker.com).
    * [Docker Swarm](#docker-swarm)
    * [Notes](#notes)
 
-# Installation
+# Установка
 
 ## Linux
 
@@ -47,7 +47,7 @@ For more information, see [here](https://docs.docker.com/docker-for-windows/inst
 https://download.docker.com/win/stable/InstallDocker.msi
 ```
 
-# Docker Registries & Repositories
+# Реестры и репозитории Docker
 
 ## Вход в реестр
 
