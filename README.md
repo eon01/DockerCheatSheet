@@ -13,6 +13,7 @@ Check [the website](http://dockercheatsheet.painlessdocker.com).
    * [Starting &amp; Stopping Containers](#starting--stopping-containers)
    * [Getting Information about Containers](#getting-information-about-containers)
    * [Networking](#networking)
+   * [Security](#security)
    * [Cleaning Docker](#cleaning-docker)
    * [Docker Swarm](#docker-swarm)
    * [Notes](#notes)
@@ -424,6 +425,23 @@ e.g.
 ```
 docker run -p $HOST_PORT:$CONTAINER_PORT --name infinite -t infinite
 ```
+
+# Security
+
+## Guidelines for building secure Docker images
+
+1. Prefer minimal base images
+2. Dedicated user on the image as the least privileged user
+3. Sign and verify images to mitigate MITM attacks
+4. Find, fix and monitor for open source vulnerabilities
+5. Don’t leak sensitive information to docker images
+6. Use fixed tags for immutability
+7. Use COPY instead of ADD
+8. Use labels for metadata
+9. Use multi-stage builds for small secure images
+10. Use a linter
+
+More detailed information on Snyk's [10 Docker Image Security Best Practices](https://snyk.io/blog/10-docker-image-security-best-practices/) blog
 
 # Cleaning Docker
 
