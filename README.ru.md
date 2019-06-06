@@ -21,7 +21,7 @@ Check [the website](http://dockercheatsheet.painlessdocker.com).
 
 ## Linux
 
-For more information, see [here](https://docs.docker.com/install/#server)
+Больше информации [здесь](https://docs.docker.com/install/#server)
 
 ```
 curl -sSL https://get.docker.com/ | sh
@@ -29,7 +29,7 @@ curl -sSL https://get.docker.com/ | sh
 
 ## Mac
 
-For more information, see [here](https://docs.docker.com/docker-for-mac/install/)
+Больше информации [здесь](https://docs.docker.com/docker-for-mac/install/)
 
 Скачайте dmg по этой ссылке.
 
@@ -39,7 +39,7 @@ https://download.docker.com/mac/stable/Docker.dmg
 
 ##  Windows
 
-For more information, see [here](https://docs.docker.com/docker-for-windows/install/)
+Больше информации [здесь](https://docs.docker.com/docker-for-windows/install/)
 
 Используйте MSI-инсталлятор:
 
@@ -101,12 +101,12 @@ docker image push eon01/nginx localhost:5000/myadmin/nginx
 
 # Первые действия с контейнерами
 
-## Create and Run a Simple Container
+## Создание и запуск простого контейнера
 
-> - Start an [ubuntu:latest](https://hub.docker.com/_/ubuntu/) image
-> - Bind the port `80` from the **CONTAINER** to port `3000` on the **HOST** 
-> - Mount the current directory to `/data` on the CONTAINER 
-> - Note: on **windows** you have to change `-v ${PWD}:/data` to `-v "C:\Data":/data`
+> - Запустите образ [ubuntu:latest](https://hub.docker.com/_/ubuntu/)
+> - Свяжите порт `80` **КОНТЕЙНЕРА** с портом `3000` **ХОСТА** 
+> - Смонтируйте текущую директорию в `/data` на КОНТЕЙНЕРЕ
+> - Заметка: на **windows** вы должны изменить `-v ${PWD}:/data` на `-v "C:\Data":/data`
 
 ```
 docker container run --name infinite -it -p 3000:80 -v ${PWD}:/data ubuntu:latest
@@ -215,7 +215,7 @@ docker container ls -a
 docker logs infinite
 ```
 
-## Follow Container Logs
+## Следовать логам контейнера (вывод логов с обновлениями в реальном времени)
 
 ```
 docker container logs infinite -f
@@ -411,15 +411,15 @@ docker network disconnect MyOverlayNetwork nginx
 
 ## Exposing Ports
 
-Using Dockerfile, you can expose a port on the container using:
+Используя Dockerfile, вы можете раскрыть порт в контейнере используя:
 
 ```
 EXPOSE <port_number>
 ```
 
-You can also map the container port to a host port using:
+You can also map порт контейнера to порт хоста используя:
 
-e.g.
+Например,
 
 ```
 docker run -p $HOST_PORT:$CONTAINER_PORT --name infinite -t infinite
@@ -591,4 +591,4 @@ docker service update --replicas=5 nginx
 
 # Заметки
 
-This work was first published in [Painless Docker Course](http://painlessdocker.com)
+Эта работа впервые была опубликована в [Painless Docker Course](http://painlessdocker.com)
