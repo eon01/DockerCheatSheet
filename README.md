@@ -202,10 +202,17 @@ docker container attach nginx
 
 ## Running Containers
 
+Shortest way:        
+```
+docker ps
+```
+Alternative:      
 ```
 docker container ls
 ```
-
+```
+docker ps -a
+```
 ```
 docker container ls -a
 ```
