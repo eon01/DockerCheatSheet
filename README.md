@@ -435,6 +435,8 @@ EXPOSE <port_number>
 
 You can also map the container port to a host port using:
 
+docker run -p $HOST_PORT:$CONTAINER_PORT --name <container_name> -t <image>
+
 e.g.
 
 ```
