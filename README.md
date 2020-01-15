@@ -136,12 +136,19 @@ docker container rename infinite infinity
 ```
 docker container rm infinite
 ```
+A container can be removed only after it has been stopped using the ```docker stop``` command. To avoid this, add the ```--rm``` flag while running the container.     
 
 ## Updating a Container
 
 ```
 docker container update --cpu-shares 512 -m 300M infinite
 ```
+
+## Running a command within a running container
+```
+docker exec -it infinite sh
+```
+In the example above, ```bash``` can replace ```sh``` as an alternative if the above is giving an error.
 
 # Starting & Stopping Containers
 
@@ -202,10 +209,18 @@ docker container attach nginx
 
 ## Running Containers
 
+Shortest way:        
+```
+docker ps
+```
+Alternative:      
 ```
 docker container ls
 ```
-
+## All containers.   
+```
+docker ps -a
+```
 ```
 docker container ls -a
 ```
