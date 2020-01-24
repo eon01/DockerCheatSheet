@@ -93,11 +93,12 @@ docker container run --name infinite -it -p 3000:80 -v ${PWD}:/data ubuntu:lates
 ```
 docker container create -t -i eon01/infinite --name infinite
 ```
-
+<div dir=rtl>
+ 
 ## اجرای کانتینر
 
 
-<div dir=rtl>
+<div dir=ltr>
 
 ```
 docker container run -it --name infinite -d eon01/infinite
