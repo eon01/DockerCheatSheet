@@ -103,6 +103,7 @@ docker container rm infinite
 ```
 
 <div dir=rtl>
+ 
 ## اپدیت کردن کانتینر
 
 
@@ -136,8 +137,7 @@ docker container stop nginx
 
 <div dir=rtl>
 
-
-##راه‌اندازی
+## اندازه
 
 <div dir=ltr>
 
