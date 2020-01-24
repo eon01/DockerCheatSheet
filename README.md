@@ -3,7 +3,7 @@
 
 Check [the website](http://dockercheatsheet.painlessdocker.com).
 
-*Read this in other languages: [English](README.md), [Russian](README.ru.md), [Persian](README.fa.md)
+*Read this in other languages: [English](README.md), [Russian](README.ru.md), [Persian](README.fa.md)*
 
 # Table of Contents
 
