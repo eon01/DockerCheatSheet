@@ -395,7 +395,7 @@ docker network create -d overlay \
 docker network rm MyOverlayNetwork
 ```
 
-## 列式现有网络
+## 列示现有网络
 
 ```
 docker network ls
@@ -625,4 +625,4 @@ docker service update --replicas=5 nginx
 
 # 附录
 
-改文章首发于 [Painless Docker Course](http://painlessdocker.com)
+该文章首发于 [Painless Docker Course](http://painlessdocker.com)
