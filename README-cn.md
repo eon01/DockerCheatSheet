@@ -1,4 +1,4 @@
-> 如你如见，最近这个仓库在 GIthub 上变的流行。不久的将来，我们会进一步完善它。 
+> 如你如见，最近这个仓库在 GIthub 上变的流行。不久的将来，我们会进一步完善它。   
 > 感谢你的支持。
 
 点击 [网址](http://dockercheatsheet.painlessdocker.com).
@@ -265,13 +265,13 @@ docker container port infinite
 docker container top infinite
 ```
 
-## Container Resource Usage
+## 查看容器资源使用情况
 
 ```
 docker container stats infinite
 ```
 
-## Inspecting changes to files or directories on a container’s filesystem
+## 检查容器文件系统上文件或目录的更改情况
 
 ```
 docker container diff infinite
@@ -324,7 +324,7 @@ curl example.com/remote/Dockerfile | docker build -f - .
 docker image rm nginx
 ```
 
-## Loading a Tarred Repository from a File or the Standard Input Stream
+## 从压缩文件中导入镜像
 
 ```
 docker image load < ubuntu.tar.gz
