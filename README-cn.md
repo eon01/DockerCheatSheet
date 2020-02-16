@@ -8,10 +8,10 @@
 # 目录
 
    * [安装](#安装)
-   * [Docker 仓库](#docker-仓库)
+   * [Docker 仓管中心和仓库（Registries--Repositories）](#Docker-仓管中心和仓库（Registries--Repositories）)
    * [运行容器](#运行容器)
    * [启动 &amp; 停止容器](#启动--停止容器)
-   * [Getting Information about Containers](#getting-information-about-containers)
+   * [获取容器相关详细](#获取容器相关详细)
    * [网络](#网络)
    * [镜像安全性](#镜像安全性)
    * [清理 Docker](#清理-Docker)
@@ -48,7 +48,7 @@ https://download.docker.com/mac/stable/Docker.dmg
 https://download.docker.com/win/stable/InstallDocker.msi
 ```
 
-# Docker 仓库
+# Docker 仓管中心和仓库（Registries & Repositories）
 
 ## 登录镜像仓库
 
@@ -207,7 +207,7 @@ docker container attach nginx
 
 # 获取容器相关详细
 
-## 对于运行的容器
+## 查看运行的容器
 
 简写:        
 ```
@@ -247,7 +247,7 @@ docker container inspect infinite
 docker container inspect --format '{{ .NetworkSettings.IPAddress }}' $(docker ps -q)
 ```
 
-## 容器事件（？）
+## 查看容器事件
 
 ```
 docker system events infinite
@@ -447,83 +447,83 @@ docker run -p $HOST_PORT:$CONTAINER_PORT --name infinite -t infinite
 
 ## 构建安全镜像的一些指导建议
 
-1. Prefer minimal base images
-2. Dedicated user on the image as the least privileged user
-3. Sign and verify images to mitigate MITM attacks
-4. Find, fix and monitor for open source vulnerabilities
-5. Don’t leak sensitive information to docker images
-6. Use fixed tags for immutability
-7. Use COPY instead of ADD
-8. Use labels for metadata
-9. Use multi-stage builds for small secure images
-10. Use a linter
+1. 选择最精简的基础镜像
+2. 创建用户并分配使其用镜像基础权限
+3. 署名并校验镜像以避免中间人攻击（MITM） 攻击
+4. 寻找、修复和关注开源漏洞
+5. 不要在镜像中泄露敏感信息
+6. 使用明确固定的镜像标签
+7. 使用 COPY 代替 ADD
+8. 为元数据创建标签
+9. 采用多阶段构建以获得小且安全的镜像
+10. 使用 linter
 
-More detailed information on Snyk's [10 Docker Image Security Best Practices](https://snyk.io/blog/10-docker-image-security-best-practices/) blog
+详细内容参考 Snyk 的 [10 Docker Image Security Best Practices](https://snyk.io/blog/10-docker-image-security-best-practices/) blog
 
 # 清理 Docker
 
-## Removing a Running Container
+## 删除容器
 
 ```
 docker container rm nginx
 ```
 
-## Removing a Container and its Volume
+## 删除容器和其数据卷
 
 ```
 docker container rm -v nginx
 ```
 
-## Removing all Exited Containers
+## 删除所有退出（Exited）容器
 
 ```
 docker container rm $(docker container ls -a -f status=exited -q)
 ```
 
 
-## Removing All Stopped Containers
+## 删除所有退出（Stopped）容器
 
 ```
 docker container rm `docker container ls -a -q`
 ```
 
-## Removing a Docker Image
+## 删除镜像
 
 ```
 docker image rm nginx
 ```
 
-## Removing Dangling Images
+## 删除悬空（Dangling）镜像
 
 ```
 docker image rm $(docker image ls -f dangling=true -q)
 ```
 
-## Removing all Images
+## 删除所有镜像
 
 ```
 docker image rm $(docker image ls -a -q)
 ```
 
-## Removing all untagged images
+## 删除所有无标签镜像
 
 ```
 docker image rm -f $(docker image ls | grep "^<none>" | awk "{print $3}")
 ```
 
-## Stopping & Removing all Containers
+## 停止 & 删除所有镜像
 
 ```
 docker container stop $(docker container ls -a -q) && docker container rm $(docker container ls -a -q)
 ```
 
-## Removing Dangling Volumes
+## 删除悬空（Dangling）数据卷
 
 ```
 docker volume rm $(docker volume ls -f dangling=true -q)
 ```
 
-## Removing all unused (containers, images, networks and volumes)
+## 删除所有 （容器、镜像、网络和数据卷）
 
 ```
 docker system prune -f
@@ -537,28 +537,28 @@ docker system prune -a
 
 # Docker Swarm
 
-## Installing Docker Swarm
+## 安装 Docker Swarm
 
 ```
 curl -ssl https://get.docker.com | bash
 ```
 
 
-## Initializing the Swarm
+## 初始化 Swarm
 
 ```
 docker swarm init --advertise-addr 192.168.10.1
 ```
 
 
-## Getting a Worker to Join the Swarm
+## 将工作节点加入 Swarm
 
 ```
 docker swarm join-token worker
 ```
 
 
-## Getting a Manager to Join the Swarm
+## 将管理节点加入 Swarm
 
 ```
 docker swarm join-token manager
@@ -566,36 +566,35 @@ docker swarm join-token manager
 
 
 
-## Listing Services
+## 列示服务
 
 ```
 docker service ls
 ```
 
 
-## Listing nodes
+## 列示节点
 
 ```
 docker node ls
 ```
 
 
-## Creating a Service
+## 新建服务
 
 ```
 docker service create --name vote -p 8080:80 instavote/vote
 ```
 
 
-## Listing Swarm Tasks
+## 列示 Swarm 任务
 
 ```
 docker service ps
 ```
 
 
-## Scaling a Service
-
+## 伸缩服务
 
 ```
 docker service scale vote=3
