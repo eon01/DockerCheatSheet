@@ -8,7 +8,7 @@
 # 目录
 
    * [安装](#安装)
-   * [Docker 仓管中心和仓库（RegistriesRepositories）](#Docker-仓管中心和仓库（Registries--Repositories）)
+   * [Docker 仓管中心和仓库](#Docker-仓管中心和仓库)
    * [运行容器](#运行容器)
    * [启动 &amp; 停止容器](#启动--停止容器)
    * [获取容器相关详细](#获取容器相关详细)
@@ -48,7 +48,7 @@ https://download.docker.com/mac/stable/Docker.dmg
 https://download.docker.com/win/stable/InstallDocker.msi
 ```
 
-# Docker 仓管中心和仓库（Registries & Repositories）
+# Docker 仓管中心和仓库
 
 ## 登录镜像仓库
 
