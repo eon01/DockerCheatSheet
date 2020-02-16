@@ -8,7 +8,7 @@
 # 目录
 
    * [安装](#安装)
-   * [Docker 仓管中心和仓库（Registries--Repositories）](#Docker-仓管中心和仓库（Registries--Repositories）)
+   * [Docker 仓管中心和仓库（RegistriesRepositories）](#Docker-仓管中心和仓库（Registries--Repositories）)
    * [运行容器](#运行容器)
    * [启动 &amp; 停止容器](#启动--停止容器)
    * [获取容器相关详细](#获取容器相关详细)
@@ -22,7 +22,7 @@
 
 ## Linux
 
-查看 [这里](https://docs.docker.com/install/#server)  获取更多信息
+查看 [这里](https://docs.docker.com/install/#server)  获取更多信息。
 
 ```
 curl -sSL https://get.docker.com/ | sh
