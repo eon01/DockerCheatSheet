@@ -3,26 +3,26 @@
 
 点击 [网址](http://dockercheatsheet.painlessdocker.com).
 
-*查看其他语言版本s: [英语](README.md), [俄语](README.ru.md), [波斯语](README.fa.md)*
+*查看其他语言版本: [英语](README.md), [俄语](README.ru.md), [波斯语](README.fa.md)*
 
-# Table of Contents
+# 目录
 
    * [安装](#安装)
-   * [Docker 仓库](#docker 仓库)
-   * [Running Containers](#running-containers)
-   * [Starting &amp; Stopping Containers](#starting--stopping-containers)
+   * [Docker 仓库](#docker-仓库)
+   * [运行容器](#运行容器)
+   * [启动 &amp; 停止容器](#启动--停止容器)
    * [Getting Information about Containers](#getting-information-about-containers)
-   * [Networking](#networking)
-   * [Security](#security)
-   * [Cleaning Docker](#cleaning-docker)
+   * [网络](#网络)
+   * [镜像安全性](#镜像安全性)
+   * [清理 Docker](#清理-Docker)
    * [Docker Swarm](#docker-swarm)
-   * [Notes](#notes)
+   * [附录](#附录)
 
 # 安装
 
 ## Linux
 
-For more information, see [here](https://docs.docker.com/install/#server)
+查看 [这里](https://docs.docker.com/install/#server)  获取更多信息
 
 ```
 curl -sSL https://get.docker.com/ | sh
@@ -30,9 +30,9 @@ curl -sSL https://get.docker.com/ | sh
 
 ## Mac
 
-For more information, see [here](https://docs.docker.com/docker-for-mac/install/)
+查看 [这里](https://docs.docker.com/docker-for-mac/install/) 获取更多信息
 
-Use this link to download the dmg.
+使用下面连接下载 dmg 文件.
 
 ```
 https://download.docker.com/mac/stable/Docker.dmg
@@ -40,17 +40,17 @@ https://download.docker.com/mac/stable/Docker.dmg
 
 ##  Windows
 
-For more information, see [here](https://docs.docker.com/docker-for-windows/install/)
+查看 [这里](https://docs.docker.com/docker-for-windows/install/) 获取更多信息
 
-Use the msi installer:
+通过 msi 文件安装:
 
 ```
 https://download.docker.com/win/stable/InstallDocker.msi
 ```
 
-# Docker Registries & Repositories
+# Docker 仓库
 
-## Login to a Registry
+## 登录镜像仓库
 
 ```
 docker login
@@ -60,7 +60,7 @@ docker login
 docker login localhost:8080
 ```
 
-## Logout from a Registry.
+## 从镜像仓库退出登录
 
 ```
 docker logout
@@ -70,7 +70,7 @@ docker logout
 docker logout localhost:8080
 ```
 
-## Searching an Image
+## 搜索镜像
 
 ```
 docker search nginx
@@ -80,7 +80,7 @@ docker search nginx
 docker search --filter stars=3 --no-trunc nginx
 ```
 
-## Pulling an Image
+## 拉取镜像
 
 ```
 docker image pull nginx
@@ -90,7 +90,7 @@ docker image pull nginx
 docker image pull eon01/nginx localhost:5000/myadmin/nginx
 ```
 
-## Pushing an Image
+## 推送镜像
 
 ```
 docker image push eon01/nginx
@@ -100,124 +100,124 @@ docker image push eon01/nginx
 docker image push eon01/nginx localhost:5000/myadmin/nginx
 ```
 
-# Running Containers
+# 运行容器
 
-## Create and Run a Simple Container
+## 创建并运行一个简单的容器
 
-> - Start an [ubuntu:latest](https://hub.docker.com/_/ubuntu/) image
-> - Bind the port `80` from the **CONTAINER** to port `3000` on the **HOST** 
-> - Mount the current directory to `/data` on the CONTAINER 
-> - Note: on **windows** you have to change `-v ${PWD}:/data` to `-v "C:\Data":/data`
+> - 启动[ubuntu:latest](https://hub.docker.com/_/ubuntu/) 镜像
+> - 绑定**容器**的 `80` 端口到**宿主机**的 `3000` 端口 
+> - 将主机 `/data` 目录挂载到容器中
+> - 注意: 在 **windows** 系统中，你需将 `-v ${PWD}:/data` 改为`-v "C:\Data":/data`
 
 ```
 docker container run --name infinite -it -p 3000:80 -v ${PWD}:/data ubuntu:latest
 ```
 
-## Creating a Container
+## 创建容器
 
 ```
 docker container create -t -i eon01/infinite --name infinite
 ```
 
-## Running a Container
+## 运行容器
 
 ```
 docker container run -it --name infinite -d eon01/infinite
 ```
 
-## Renaming a Container
+## 重命名容器
 
 ```
 docker container rename infinite infinity
 ```
 
-## Removing a Container
+## 删除容器
 
 ```
 docker container rm infinite
 ```
-A container can be removed only after it has been stopped using the ```docker stop``` command. To avoid this, add the ```--rm``` flag while running the container.     
+容器只有停止后才可被删除，通过 ```docker stop``` 命令停止容器。为避免这个可在容器启动时加上```--rm``` 选项。     
 
-## Updating a Container
+## 更新容器配置
 
 ```
 docker container update --cpu-shares 512 -m 300M infinite
 ```
 
-## Running a command within a running container
+## 在运行的容器中执行命令
 ```
 docker exec -it infinite sh
 ```
-In the example above, ```bash``` can replace ```sh``` as an alternative if the above is giving an error.
+上例中,如果报错可将 ```bash``` 可替换为 ```sh``` .
 
-# Starting & Stopping Containers
+# 启动 & 停止容器
 
-## Starting
+## 启动
 
 ```
 docker container start nginx
 ```
 
-## Stopping
+## 停止
 ```
 docker container stop nginx
 ```
 
-## Restarting
+## 重启
 ```
 docker container restart nginx
 ```
 
-## Pausing
+## 暂停
 ```
 docker container pause nginx
 
 ```
 
-## Unpausing
+## 取消暂停
 
 ```
 docker container unpause nginx
 ```
 
-## Blocking a Container
+## 阻塞容器
 
 ```
 docker container wait nginx
 ```
 
-## Sending a SIGKILL
+## 杀掉容器
 
 ```
 docker container kill nginx
 ```
 
-## Sending another signal
+## 发送其他信号
 
 ```
 docker container kill -s HUP nginx
 ```
 
-## Connecting to an Existing Container
+## 连接现有容器
 
 ```
 docker container attach nginx
 ```
 
 
-# Getting Information about Containers
+# 获取容器相关详细
 
-## Running Containers
+## 对于运行的容器
 
-Shortest way:        
+简写:        
 ```
 docker ps
 ```
-Alternative:      
+或者:      
 ```
 docker container ls
 ```
-## All containers.   
+## 查看所有容器   
 ```
 docker ps -a
 ```
@@ -225,19 +225,19 @@ docker ps -a
 docker container ls -a
 ```
 
-## Container Logs
+## 查看容器日志
 
 ```
 docker logs infinite
 ```
 
-## Follow Container Logs
+## 追踪容器日志
 
 ```
 docker container logs infinite -f
 ```
 
-## Inspecting Containers
+## 检查容器
 
 ```
 docker container inspect infinite
@@ -247,19 +247,19 @@ docker container inspect infinite
 docker container inspect --format '{{ .NetworkSettings.IPAddress }}' $(docker ps -q)
 ```
 
-## Containers Events
+## 容器事件（？）
 
 ```
 docker system events infinite
 ```
 
-## Public Ports
+## 查看容器端口
 
 ```
 docker container port infinite
 ```
 
-## Running Processes
+## 运行进程
 
 ```
 docker container top infinite
@@ -278,15 +278,15 @@ docker container diff infinite
 ```
 
 
-## Manipulating Images
+## 操作镜像
 
-## Listing Images
+## 列示镜像
 
 ```
 docker image ls
 ```
 
-## Building Images
+## 构建镜像
 
 ```
 docker build .
@@ -318,7 +318,7 @@ curl example.com/remote/Dockerfile | docker build -f - .
 
 
 
-## Removing an Image
+## 删除镜像
 
 ```
 docker image rm nginx
@@ -334,40 +334,40 @@ docker image load < ubuntu.tar.gz
 docker image load --input ubuntu.tar
 ```
 
-## Save an Image to a Tar Archive
+## 将镜像保存为 Tar 包
 
 ```
 docker image save busybox > ubuntu.tar
 ```
 
-## Showing the History of an Image
+## 展示镜像历史
 
 ```
-docker image history
+docker image history  busybox
 ```
 
-## Creating an Image From a Container
+## 将容器保存为镜像
 
 ```
 docker container commit nginx
 ```
 
-## Tagging an Image
+## 给镜像打标签
 
 ```
 docker image tag nginx eon01/nginx
 ```
 
-## Pushing an Image
+## 推送镜像
 
 ```
 docker image push eon01/nginx
 ```
 
 
-# Networking
+# 网络
 
-## Creating Networks
+## 创建网络
 
 ```
 docker network create -d overlay MyOverlayNetwork
@@ -389,63 +389,63 @@ docker network create -d overlay \
   MyOverlayNetwork
 ```
 
-## Removing a Network
+## 删除某网络
 
 ```
 docker network rm MyOverlayNetwork
 ```
 
-## Listing Networks
+## 列式现有网络
 
 ```
 docker network ls
 ```
 
-## Getting Information About a Network
+## 获取网络信息
 
 ```
 docker network inspect MyOverlayNetwork
 ```
 
-## Connecting a Running Container to a Network
+## 将运行中的容器接入某一网络
 
 ```
 docker network connect MyOverlayNetwork nginx
 ```
 
-## Connecting a Container to a Network When it Starts
+## 启动容器时，将其接入某一网络
 
 ```
 docker container run -it -d --network=MyOverlayNetwork nginx
 ```
 
-## Disconnecting a Container from a Network
+## 将容器从某网络中断开连接
 
 ```
 docker network disconnect MyOverlayNetwork nginx
 ```
 
-## Exposing Ports
+## 暴露端口
 
-Using Dockerfile, you can expose a port on the container using:
+使用 Dockerfile, 你可以暴露容器端口:
 
 ```
 EXPOSE <port_number>
 ```
 
-You can also map the container port to a host port using:
+你还可以通过下面方式，将容器端口映射为宿主机端口:
 
 docker run -p $HOST_PORT:$CONTAINER_PORT --name <container_name> -t <image>
 
-e.g.
+例如
 
 ```
 docker run -p $HOST_PORT:$CONTAINER_PORT --name infinite -t infinite
 ```
 
-# Security
+# 镜像安全性
 
-## Guidelines for building secure Docker images
+## 构建安全镜像的一些指导建议
 
 1. Prefer minimal base images
 2. Dedicated user on the image as the least privileged user
@@ -460,7 +460,7 @@ docker run -p $HOST_PORT:$CONTAINER_PORT --name infinite -t infinite
 
 More detailed information on Snyk's [10 Docker Image Security Best Practices](https://snyk.io/blog/10-docker-image-security-best-practices/) blog
 
-# Cleaning Docker
+# 清理 Docker
 
 ## Removing a Running Container
 
@@ -529,7 +529,7 @@ docker volume rm $(docker volume ls -f dangling=true -q)
 docker system prune -f
 ```
 
-## Clean all
+## 清理所有
 
 ```
 docker system prune -a
@@ -602,7 +602,7 @@ docker service scale vote=3
 ```
 
 
-## Updating a Service
+## 更新服务
 
 ```
 docker service update --image instavote/vote:movies vote
@@ -624,6 +624,6 @@ docker service update --limit-cpu 2 nginx
 docker service update --replicas=5 nginx
 ```
 
-# Notes
+# 附录
 
-This work was first published in [Painless Docker Course](http://painlessdocker.com)
+改文章首发于 [Painless Docker Course](http://painlessdocker.com)
