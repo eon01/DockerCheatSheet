@@ -1,14 +1,14 @@
-> This repository is trending on Github since some days now. Watch it, we will add many updates in the future. 
-> Thank you for your support.
+> 如你如见，最近这个仓库在 GIthub 上变的流行。不久的将来，我们会进一步完善它。 
+> 感谢你的支持。
 
-Check [the website](http://dockercheatsheet.painlessdocker.com).
+点击 [网址](http://dockercheatsheet.painlessdocker.com).
 
-*Read this in other languages: [English](README.md), [Russian](README.ru.md), [Persian](README.fa.md)*
+*查看其他语言版本s: [英语](README.md), [俄语](README.ru.md), [波斯语](README.fa.md)*
 
 # Table of Contents
 
-   * [Installation](#installation)
-   * [Docker Registries &amp; Repositories](#docker-registries--repositories)
+   * [安装](#安装)
+   * [Docker 仓库](#docker 仓库)
    * [Running Containers](#running-containers)
    * [Starting &amp; Stopping Containers](#starting--stopping-containers)
    * [Getting Information about Containers](#getting-information-about-containers)
@@ -18,7 +18,7 @@ Check [the website](http://dockercheatsheet.painlessdocker.com).
    * [Docker Swarm](#docker-swarm)
    * [Notes](#notes)
 
-# Installation
+# 安装
 
 ## Linux
 
