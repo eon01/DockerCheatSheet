@@ -1,3 +1,23 @@
+> This repository is trending on Github since some days now. Watch it, we will add many updates in the future. 
+> Thank you for your support.
+
+Check [the website](http://dockercheatsheet.painlessdocker.com).
+
+*Read this in other languages: [English](README.md), [Russian](README.ru.md), [Persian](README.fa.md), [Chinese](README.zh.md)*
+
+# Table of Contents
+
+   * [Installation](#installation)
+   * [Docker Registries &amp; Repositories](#docker-registries--repositories)
+   * [Running Containers](#running-containers)
+   * [Starting &amp; Stopping Containers](#starting--stopping-containers)
+   * [Getting Information about Containers](#getting-information-about-containers)
+   * [Networking](#networking)
+   * [Security](#security)
+   * [Cleaning Docker](#cleaning-docker)
+   * [Docker Swarm](#docker-swarm)
+   * [Notes](
+   
 # The Ultimate Docker Cheat Sheet
 
 # Installation
@@ -273,13 +293,19 @@ docker image ls
 
 ## Building Images
 
+### From a Dockerfile in the Current Directory
+
 ```
 docker build .
 ```
 
+### From a Remote GIT Repository
+
 ```
 docker build github.com/creack/docker-firefox
 ```
+
+### Instead of Specifying a Context, You Can Pass a Single Dockerfile in the URL or Pipe the File in via STDIN
 
 ```
 docker build - < Dockerfile
@@ -289,13 +315,19 @@ docker build - < Dockerfile
 docker build - < context.tar.gz
 ```
 
+### Building and Tagging
+
 ```
 docker build -t eon/infinite .
 ```
 
+### Building a Dockerfile while Specifying the Build Context
+
 ```
 docker build -f myOtherDockerfile .
 ```
+
+### Building from a Remote Dockerfile URI
 
 ```
 curl example.com/remote/Dockerfile | docker build -f - .
@@ -317,7 +349,7 @@ docker image load < ubuntu.tar.gz
 docker image load --input ubuntu.tar
 ```
 
-## Save an Image to a Tar Archive
+## Saving an Image to a Tar Archive
 
 ```
 docker image save busybox > ubuntu.tar
@@ -352,13 +384,19 @@ docker image push eon01/nginx
 
 ## Creating Networks
 
+### Creating an Overlay Network
+
 ```
 docker network create -d overlay MyOverlayNetwork
 ```
 
+### Creating a Bridge Network
+
 ```
 docker network create -d bridge MyBridgeNetwork
 ```
+
+### Creating a Customized Overlay Network 
 
 ```
 docker network create -d overlay \
