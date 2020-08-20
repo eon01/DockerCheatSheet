@@ -1,22 +1,4 @@
-> This repository is trending on Github since some days now. Watch it, we will add many updates in the future. 
-> Thank you for your support.
-
-Check [the website](http://dockercheatsheet.painlessdocker.com).
-
-*Read this in other languages: [English](README.md), [Russian](README.ru.md), [Persian](README.fa.md), [Chinese](README.zh.md)*
-
-# Table of Contents
-
-   * [Installation](#installation)
-   * [Docker Registries &amp; Repositories](#docker-registries--repositories)
-   * [Running Containers](#running-containers)
-   * [Starting &amp; Stopping Containers](#starting--stopping-containers)
-   * [Getting Information about Containers](#getting-information-about-containers)
-   * [Networking](#networking)
-   * [Security](#security)
-   * [Cleaning Docker](#cleaning-docker)
-   * [Docker Swarm](#docker-swarm)
-   * [Notes](#notes)
+# The Ultimate Docker Cheat Sheet
 
 # Installation
 
@@ -37,6 +19,7 @@ Use this link to download the dmg.
 ```
 https://download.docker.com/mac/stable/Docker.dmg
 ```
+Open the downloaded file and follow the installation instructions.
 
 ##  Windows
 
@@ -47,6 +30,8 @@ Use the msi installer:
 ```
 https://download.docker.com/win/stable/InstallDocker.msi
 ```
+Open the downloaded file and follow the installation instructions.
+
 
 # Docker Registries & Repositories
 
@@ -104,7 +89,7 @@ docker image push eon01/nginx localhost:5000/myadmin/nginx
 
 ## Create and Run a Simple Container
 
-> - Start an [ubuntu:latest](https://hub.docker.com/_/ubuntu/) image
+> -Start an [ubuntu:latest](https://hub.docker.com/_/ubuntu/) image
 > - Bind the port `80` from the **CONTAINER** to port `3000` on the **HOST** 
 > - Mount the current directory to `/data` on the CONTAINER 
 > - Note: on **windows** you have to change `-v ${PWD}:/data` to `-v "C:\Data":/data`
@@ -136,7 +121,7 @@ docker container rename infinite infinity
 ```
 docker container rm infinite
 ```
-A container can be removed only after it has been stopped using the ```docker stop``` command. To avoid this, add the ```--rm``` flag while running the container.     
+A container can be removed only after stopping it using ```docker stop``` command. To avoid this, add the ```--rm``` flag while running the container.     
 
 ## Updating a Container
 
@@ -148,7 +133,7 @@ docker container update --cpu-shares 512 -m 300M infinite
 ```
 docker exec -it infinite sh
 ```
-In the example above, ```bash``` can replace ```sh``` as an alternative if the above is giving an error.
+In the example above, ```bash``` can replace ```sh``` as an alternative (if the above is giving an error).
 
 # Starting & Stopping Containers
 
@@ -207,7 +192,7 @@ docker container attach nginx
 
 # Getting Information about Containers
 
-## Running Containers
+## From Running Containers
 
 Shortest way:        
 ```
@@ -217,7 +202,7 @@ Alternative:
 ```
 docker container ls
 ```
-## All containers.   
+## From All containers.   
 ```
 docker ps -a
 ```
@@ -231,7 +216,7 @@ docker container ls -a
 docker logs infinite
 ```
 
-## Follow Container Logs
+## 'tail -f'  Containers' Logs
 
 ```
 docker container logs infinite -f
@@ -278,7 +263,7 @@ docker container diff infinite
 ```
 
 
-## Manipulating Images
+## Managing Images
 
 ## Listing Images
 
@@ -315,8 +300,6 @@ docker build -f myOtherDockerfile .
 ```
 curl example.com/remote/Dockerfile | docker build -f - .
 ```
-
-
 
 ## Removing an Image
 
@@ -435,7 +418,9 @@ EXPOSE <port_number>
 
 You can also map the container port to a host port using:
 
+```
 docker run -p $HOST_PORT:$CONTAINER_PORT --name <container_name> -t <image>
+```
 
 e.g.
 
@@ -458,9 +443,11 @@ docker run -p $HOST_PORT:$CONTAINER_PORT --name infinite -t infinite
 9. Use multi-stage builds for small secure images
 10. Use a linter
 
-More detailed information on Snyk's [10 Docker Image Security Best Practices](https://snyk.io/blog/10-docker-image-security-best-practices/) blog
+You can find more nformation on Snyk's [10 Docker Image Security Best Practices](https://snyk.io/blog/10-docker-image-security-best-practices/) blog post.
+
 
 # Cleaning Docker
+
 
 ## Removing a Running Container
 
@@ -505,7 +492,7 @@ docker image rm $(docker image ls -f dangling=true -q)
 docker image rm $(docker image ls -a -q)
 ```
 
-## Removing all untagged images
+## Removing all Untagged Images
 
 ```
 docker image rm -f $(docker image ls | grep "^<none>" | awk "{print $3}")
@@ -627,4 +614,3 @@ docker service update --replicas=5 nginx
 # Notes
 
 This work was first published in [Painless Docker Course](http://painlessdocker.com)
-
