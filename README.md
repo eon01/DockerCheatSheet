@@ -1,7 +1,8 @@
-> This repository is trending on Github since some days now. Watch it, we will add many updates in the future. 
-> Thank you for your support.
+> This repository has been trending on GitHub. I appreciate your support.
 
-Check [the website](http://dockercheatsheet.painlessdocker.com).
+Buy the book (Painless Docker):
+- [Amazon (Kindle and paperback)](https://www.amazon.com/Painless-Docker-Unlock-Power-Ecosystem-ebook/dp/B0CP1JCTSY?&linkCode=ll1&tag=eon01-20&linkId=bfbb334282f39854101bd03aa744639a&language=en_US&ref_=as_li_ss_tl)
+- [Leanpub (epub, PDF)](https://leanpub.com/painless-docker)
 
 *Read this in other languages: [English](README.md), [Russian](README.ru.md), [Persian](README.fa.md), [Chinese](README.zh.md)*
 
