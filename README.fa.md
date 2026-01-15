@@ -25,6 +25,10 @@
 
 [داکر  Swarm]()
 
+[Docker Compose]()
+
+[دستورات مفید]()
+
 
 
 ## لاگین کردن
@@ -718,8 +722,78 @@ docker service update --image instavote/vote:movies vote
 docker service update --force --update-parallelism 1 --update-delay 30s nginx
 docker service update --update-parallelism 5--update-delay 2s --image instavote/vote:indent vote
 docker service update --limit-cpu 2 nginx
-docker service update --replicas=5 nginxf
+docker service update --replicas=5 nginx
 ```
+<div dir=rtl>
+
+# Docker Compose
+
+<div dir=ltr>
+
+```
+docker compose up -d              # اجرای سرویس‌ها در پس‌زمینه
+docker compose down               # توقف و حذف کانتینرها
+docker compose down -v            # توقف و حذف کانتینرها + volumes
+docker compose logs -f            # مشاهده لاگ‌ها
+docker compose ps                 # لیست سرویس‌های در حال اجرا
+docker compose exec app sh        # اجرای دستور در سرویس
+docker compose build --no-cache   # بازسازی بدون کش
+```
+
+<div dir=rtl>
+
+# دستورات مفید
+
+## کپی فایل بین کانتینر و هاست
+
+<div dir=ltr>
+
+```
+docker cp container:/path/file /host/path
+docker cp /host/path container:/path/file
+```
+
+<div dir=rtl>
+
+## مشاهده مصرف منابع
+
+<div dir=ltr>
+
+```
+docker stats
+docker system df
+```
+
+<div dir=rtl>
+
+## دریافت آدرس IP کانتینر
+
+<div dir=ltr>
+
+```
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name
+```
+
+<div dir=rtl>
+
+## اجرا با کاربر خاص
+
+<div dir=ltr>
+
+```
+docker exec -u root -it container_name sh
+```
+
+<div dir=rtl>
+
+## پاکسازی سریع
+
+<div dir=ltr>
+
+```
+docker system prune -a --volumes  # حذف تمام داده‌های استفاده نشده
+```
+
 <div dir=rtl>
 
 در [ویرگول](https://virgool.io/@elias_rohani/%D8%A8%D8%B1%DA%AF%D9%87-%D8%AA%D9%82%D9%84%D8%A8-%D8%AF%D8%A7%DA%A9%D8%B1-jiquimzzpqmq) بخوانید

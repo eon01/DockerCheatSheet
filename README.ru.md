@@ -15,6 +15,8 @@ Check [the website](http://dockercheatsheet.painlessdocker.com).
    * [Сеть](#сеть)
    * [Очистка Docker](#очистка-docker)
    * [Docker Swarm](#docker-swarm)
+   * [Docker Compose](#docker-compose)
+   * [Полезные команды](#полезные-команды)
    * [Заметки](#заметки)
 
 # Установка
@@ -587,6 +589,52 @@ docker service update --limit-cpu 2 nginx
 
 ```
 docker service update --replicas=5 nginx
+```
+
+# Docker Compose
+
+```
+docker compose up -d              # Запуск сервисов в фоне
+docker compose down               # Остановка и удаление контейнеров
+docker compose down -v            # Остановка + удаление volumes
+docker compose logs -f            # Просмотр логов
+docker compose ps                 # Список запущенных сервисов
+docker compose exec app sh        # Выполнить команду в сервисе
+docker compose build --no-cache   # Пересобрать без кэша
+```
+
+# Полезные команды
+
+## Копирование файлов между контейнером и хостом
+
+```
+docker cp container:/path/file /host/path
+docker cp /host/path container:/path/file
+```
+
+## Просмотр использования ресурсов
+
+```
+docker stats
+docker system df
+```
+
+## Получить IP контейнера
+
+```
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name
+```
+
+## Запуск от имени определённого пользователя
+
+```
+docker exec -u root -it container_name sh
+```
+
+## Быстрая очистка
+
+```
+docker system prune -a --volumes  # Удалить все неиспользуемые данные
 ```
 
 # Заметки
