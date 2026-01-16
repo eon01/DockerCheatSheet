@@ -17,6 +17,8 @@ Buy the book (Painless Docker):
    * [Security](#security)
    * [Cleaning Docker](#cleaning-docker)
    * [Docker Swarm](#docker-swarm)
+   * [Docker Compose](#docker-compose)
+   * [Useful Commands](#useful-commands)
    * [Notes](#notes)
    
 # The Ultimate Docker Cheat Sheet
@@ -648,4 +650,50 @@ docker service update --limit-cpu 2 nginx
 
 ```
 docker service update --replicas=5 nginx
+```
+
+# Docker Compose
+
+```
+docker compose up -d              # Start services in background
+docker compose down               # Stop and remove containers
+docker compose down -v            # Stop and remove containers + volumes
+docker compose logs -f            # Follow logs
+docker compose ps                 # List running services
+docker compose exec app sh        # Execute shell in service
+docker compose build --no-cache   # Rebuild without cache
+```
+
+# Useful Commands
+
+## Copy files between container and host
+
+```
+docker cp container:/path/file /host/path
+docker cp /host/path container:/path/file
+```
+
+## View resource usage
+
+```
+docker stats
+docker system df
+```
+
+## Get container IP
+
+```
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name
+```
+
+## Run as specific user
+
+```
+docker exec -u root -it container_name sh
+```
+
+## Quick cleanup
+
+```
+docker system prune -a --volumes  # Remove all unused data
 ```

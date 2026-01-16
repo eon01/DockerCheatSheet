@@ -16,6 +16,8 @@
    * [镜像安全性](#镜像安全性)
    * [清理 Docker](#清理-Docker)
    * [Docker Swarm](#docker-swarm)
+   * [Docker Compose](#docker-compose)
+   * [实用命令](#实用命令)
    * [附录](#附录)
 
 # 安装
@@ -621,6 +623,52 @@ docker service update --limit-cpu 2 nginx
 
 ```
 docker service update --replicas=5 nginx
+```
+
+# Docker Compose
+
+```
+docker compose up -d              # 后台启动服务
+docker compose down               # 停止并删除容器
+docker compose down -v            # 停止并删除容器和卷
+docker compose logs -f            # 查看日志
+docker compose ps                 # 列出运行中的服务
+docker compose exec app sh        # 在服务中执行命令
+docker compose build --no-cache   # 无缓存重建
+```
+
+# 实用命令
+
+## 在容器和主机之间复制文件
+
+```
+docker cp container:/path/file /host/path
+docker cp /host/path container:/path/file
+```
+
+## 查看资源使用情况
+
+```
+docker stats
+docker system df
+```
+
+## 获取容器IP地址
+
+```
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name
+```
+
+## 以指定用户身份运行
+
+```
+docker exec -u root -it container_name sh
+```
+
+## 快速清理
+
+```
+docker system prune -a --volumes  # 删除所有未使用的数据
 ```
 
 # 附录
