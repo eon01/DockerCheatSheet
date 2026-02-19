@@ -5,7 +5,7 @@
 
 <div dir=rtl>
  
- [وب سایت](http://dockercheatsheet.painlessdocker.com)
+Work adapted from [Painless Docker](https://faun.dev/sensei/academy/painless-docker-2nd-edition-a19d29-c19c66-29f3a8-0/) (2nd edition).
  
 در [ویرگول](https://virgool.io/@elias_rohani/%D8%A8%D8%B1%DA%AF%D9%87-%D8%AA%D9%82%D9%84%D8%A8-%D8%AF%D8%A7%DA%A9%D8%B1-jiquimzzpqmq) بخوانید 
 
