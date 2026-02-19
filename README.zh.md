@@ -1,7 +1,8 @@
 > 如你如见，最近这个仓库在 GIthub 上变的流行。不久的将来，我们会进一步完善它。   
 > 感谢你的支持。
 
-点击 [网址](http://dockercheatsheet.painlessdocker.com).
+Work adapted from [Painless Docker](https://faun.dev/sensei/academy/painless-docker-2nd-edition-a19d29-c19c66-29f3a8-0/) (2nd edition).
+
 
 *查看其他语言版本: [英语](README.md), [俄语](README.ru.md), [波斯语](README.fa.md)*
 
