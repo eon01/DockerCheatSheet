@@ -1,8 +1,6 @@
 > This repository has been trending on GitHub. I appreciate your support.
 
-Buy the book (Painless Docker):
-- [Amazon (Kindle and paperback)](https://www.amazon.com/Painless-Docker-Unlock-Power-Ecosystem-ebook/dp/B0CP1JCTSY?&linkCode=ll1&tag=eon01-20&linkId=bfbb334282f39854101bd03aa744639a&language=en_US&ref_=as_li_ss_tl)
-- [Leanpub (epub, PDF)](https://leanpub.com/painless-docker)
+Work adapted from [Painless Docker](https://faun.dev/sensei/academy/painless-docker-2nd-edition-a19d29-c19c66-29f3a8-0/) (2nd edition).
 
 *Read this in other languages: [English](README.md), [Russian](README.ru.md), [Persian](README.fa.md), [Chinese](README.zh.md)*
 
