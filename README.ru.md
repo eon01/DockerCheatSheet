@@ -1,7 +1,7 @@
 > This repository is trending on Github since some days now. Watch it, we will add many updates in the future. 
 > Thank you for your support.
 
-Check [the website](http://dockercheatsheet.painlessdocker.com).
+Work adapted from [Painless Docker](https://faun.dev/sensei/academy/painless-docker-2nd-edition-a19d29-c19c66-29f3a8-0/) (2nd edition).
 
 *Прочитать на других языках: [English](README.md), [Russian](README.ru.md).*
 
